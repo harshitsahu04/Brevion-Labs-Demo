@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brevion Labs | Invisible AI Demo</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="theme-dark">
+
+    <div class="app-container">
+        <!-- Header -->
+        <header class="glass-header">
+            <div class="brand-section">
+                <div class="logo-icon">
+                    <img src="brevion-logo.png" alt="Brevion Labs Logo">
+                </div>
+                <div class="brand-text">
+                    <h1>BREVION LABS</h1>
+                    <span class="tag">ENTERPRISE DEMO</span>
+                </div>
+            </div>
+
+            <div class="stats-ticker" id="roi-ticker">
+                <div class="stat-item">
+                    <span class="stat-label">TIME SAVED</span>
+                    <span class="stat-value" id="time-saved">0 min</span>
+                </div>
+                <div class="divider"></div>
+                <div class="stat-item">
+                    <span class="stat-label">COST SAVED</span>
+                    <span class="stat-value" id="cost-saved">$0</span>
+                </div>
+            </div>
+
+            <div class="controls-section">
+                <div class="supervisor-toggle-wrapper">
+                    <span class="label">Supervisor Mode</span>
+                    <label class="switch">
+                        <input type="checkbox" id="supervisor-toggle">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+
+                <div class="custom-dropdown" id="custom-industry-select">
+                    <button class="dropdown-trigger" id="dropdown-trigger">
+                        <span id="selected-option-text">D2C / E-commerce</span>
+                        <i data-lucide="chevron-down" class="dropdown-icon"></i>
+                    </button>
+                    <div class="dropdown-menu" id="dropdown-menu">
+                        <div class="dropdown-option active" data-value="d2c">
+                            <i data-lucide="shopping-bag" class="option-icon"></i>
+                            <span>D2C / E-commerce</span>
+                        </div>
+                        <div class="dropdown-option" data-value="b2b">
+                            <i data-lucide="briefcase" class="option-icon"></i>
+                            <span>B2B / SaaS</span>
+                        </div>
+                        <div class="dropdown-option" data-value="ops">
+                            <i data-lucide="calculator" class="option-icon"></i>
+                            <span>Ops / Finance</span>
+                        </div>
+                    </div>
+                    <!-- Hidden input to maintain compatibility if needed, though we will update JS directly -->
+                    <select id="industry-select" style="display:none">
+                        <option value="d2c">D2C / E-commerce</option>
+                        <option value="b2b">B2B / SaaS</option>
+                        <option value="ops">Ops / Finance</option>
+                    </select>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="grid-layout">
+
+            <!-- COLUMN 1: INPUT -->
+            <section class="column glass-panel" id="col-input">
+                <div class="col-header">
+                    <div class="col-icon"><i data-lucide="inbox"></i></div>
+                    <h2>INPUT SOURCE</h2>
+                    <span class="live-badge">LIVE</span>
+                </div>
+                <div class="col-content" id="input-container">
+                    <!-- Dynamic Content Injected Here -->
+                </div>
+            </section>
+
+            <!-- COLUMN 2: BRAIN -->
+            <section class="column glass-panel brain-column" id="col-brain">
+                <div class="col-header">
+                    <div class="col-icon"><i data-lucide="cpu"></i></div>
+                    <h2>BREVION CORE</h2>
+                    <div class="processing-indicator hidden" id="brain-spinner">
+                        <div class="spinner"></div>
+                        <span>PROCESSING</span>
+                    </div>
+                </div>
+                <div class="col-content terminal-window" id="terminal-output">
+                    <!-- Logs stream here -->
+                    <div class="terminal-line placeholder">> System ready. Waiting for input...</div>
+                </div>
+
+                <!-- Human in the Loop Controls (Hidden by default) -->
+                <div class="hitl-overlay hidden" id="hitl-controls">
+                    <div class="hitl-modal">
+                        <div class="hitl-header">
+                            <i data-lucide="shield-alert"></i>
+                            <h3>SUPERVISOR APPROVAL REQUIRED</h3>
+                        </div>
+                        <p class="hitl-reason">Confidence score (85%) below threshold.</p>
+                        <div class="hitl-actions">
+                            <button class="btn btn-reject" id="btn-reject">
+                                <i data-lucide="edit-3"></i> EDIT
+                            </button>
+                            <button class="btn btn-approve" id="btn-approve">
+                                <i data-lucide="check"></i> APPROVE
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- COLUMN 3: OUTPUT -->
+            <section class="column glass-panel" id="col-output">
+                <div class="col-header">
+                    <div class="col-icon"><i data-lucide="bar-chart-3"></i></div>
+                    <h2>SYSTEM IMPACT</h2>
+                    <span class="status-indicator">CONNECTED</span>
+                </div>
+                <div class="col-content" id="output-container">
+                    <!-- Dynamic Content Injected Here -->
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
