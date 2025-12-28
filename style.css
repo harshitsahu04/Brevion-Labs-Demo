@@ -799,6 +799,78 @@ input:checked+.slider:before {
     }
 }
 
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 1024px) {
+    body {
+        height: auto;
+        overflow-y: auto;
+    }
+
+    .app-container {
+        height: auto;
+        padding: 10px;
+        overflow-y: visible;
+    }
+
+    .glass-header {
+        flex-direction: column;
+        gap: 16px;
+        padding: 16px;
+    }
+
+    .brand-section {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .stats-ticker {
+        width: 100%;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .controls-section {
+        width: 100%;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .supervisor-toggle-wrapper {
+        width: 100%;
+        justify-content: space-between;
+        background: rgba(255, 255, 255, 0.05);
+        padding: 10px 16px;
+        border-radius: 12px;
+    }
+
+    .custom-dropdown {
+        width: 100%;
+    }
+
+    .grid-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        padding-bottom: 40px;
+    }
+
+    .column {
+        height: auto;
+        min-height: 400px;
+    }
+
+    /* Ensure chat interface takes height in mobile */
+    .chat-interface {
+        min-height: 300px;
+    }
+
+    /* Adjust modal for mobile */
+    .hitl-modal {
+        width: 95%;
+        margin: 0 auto;
+    }
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;
