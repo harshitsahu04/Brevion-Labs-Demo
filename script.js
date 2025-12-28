@@ -187,10 +187,10 @@ const SCENARIOS = {
             { text: "ERP Updated.", delay: 300, success: true }
         ],
         outputHTML: `
-    < div class="platform-header ph-excel" >
+        <div class="platform-header ph-excel">
         <i data-lucide="sheet" style="width:16px"></i>
                 ORACLE NETSUITE
-            </div >
+            </div>
     <table class="dash-table">
         <thead>
             <tr>
@@ -211,7 +211,7 @@ const SCENARIOS = {
     </table>
 `,
         updateRowHTML: `
-    < td > INV - TC - 24</td >
+    <td>INV-TC-24</td>
             <td>TechCorp</td>
             <td>$4,500</td>
             <td><span class="status-tag tag-purple">Scheduled</span></td>
@@ -309,7 +309,7 @@ function loadScenario(mode) {
     els.colInput.innerHTML = data.inputHTML;
 
     // 2. Reset Brain
-    els.colBrain.innerHTML = `< div class="terminal-line placeholder" >> System ready.Waiting for input...</div > `;
+    els.colBrain.innerHTML = `<div class="terminal-line placeholder">> System ready.Waiting for input...</div>`;
     els.spinner.classList.add('hidden');
     els.hitlOverlay.classList.add('hidden');
 
@@ -386,7 +386,7 @@ function streamLogItem(logItem) {
         div.className = 'log-entry';
 
         // Helper to format text
-        let content = `< span class="log-arrow" >></span > <span class="log-text">${logItem.text}</span>`;
+        let content = `<span class="log-arrow">></span> <span class="log-text">${logItem.text}</span>`;
         if (logItem.highlight) div.style.color = 'var(--accent-primary)';
         if (logItem.success) div.style.color = 'var(--success)';
 
@@ -403,7 +403,7 @@ function streamLogItem(logItem) {
 function updateLog(text, isWarning = false, isSuccess = false) {
     const div = document.createElement('div');
     div.className = 'log-entry';
-    div.innerHTML = `< span class="log-arrow" >></span > <span class="log-text">${text}</span>`;
+    div.innerHTML = `<span class="log-arrow">></span> <span class="log-text">${text}</span>`;
     if (isWarning) div.style.color = 'var(--warning)';
     if (isSuccess) div.style.color = 'var(--success)';
     els.colBrain.appendChild(div);
